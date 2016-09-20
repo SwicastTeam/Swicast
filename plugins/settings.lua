@@ -61,7 +61,7 @@ local function pre_process(msg)
         		delete_msg(msg.id, ok_cb, false)
 		end
 	end
--- end cheking
+-- end checking
 
     local hash = 'flood:max:'..msg.to.id
     if not redis:get(hash) then
