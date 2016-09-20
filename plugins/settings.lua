@@ -46,6 +46,23 @@ local function set_group_photo(msg, success, result)
 end
 
 local function pre_process(msg)
+	
+-- msg.text and msg.media.caption check	
+	if msg.text then
+		local is_link_caption = msg.media.caption:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]/") or msg.media.caption:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]/")
+		if is_link_caption and link == "noAllowed" then
+			delete_msg(msg.id, ok_cb, false)
+		end
+	end
+	
+        if msg.media and msg.media.caption then
+        	local is_link_caption = msg.media.caption:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]/") or msg.media.caption:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]/")
+        	if is_link_caption and link == "noAllowed" then
+        		delete_msg(msg.id, ok_cb, false)
+		end
+	end
+-- end
+
     local hash = 'flood:max:'..msg.to.id
     if not redis:get(hash) then
         floodMax = 5
