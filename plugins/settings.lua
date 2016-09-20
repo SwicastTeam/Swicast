@@ -54,7 +54,6 @@ local function pre_process(msg)
 			delete_msg(msg.id, ok_cb, false)
 		end
 	end
-	
         if msg.media and msg.media.caption then
         	local is_link_caption = msg.media.caption:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]/") or msg.media.caption:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]/")
         	if is_link_caption and link == "noAllowed" then
