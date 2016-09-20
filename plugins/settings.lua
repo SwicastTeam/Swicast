@@ -46,7 +46,6 @@ local function set_group_photo(msg, success, result)
 end
 
 local function pre_process(msg)
-	
 -- msg.text and msg.media.caption checking
 	if msg.text then
 		local is_link_caption = msg.media.caption:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]/") or msg.media.caption:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]/")
@@ -61,7 +60,6 @@ local function pre_process(msg)
 		end
 	end
 -- end checking
-
     local hash = 'flood:max:'..msg.to.id
     if not redis:get(hash) then
         floodMax = 5
