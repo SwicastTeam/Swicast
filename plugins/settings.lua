@@ -47,7 +47,7 @@ end
 
 local function pre_process(msg)
 	
--- msg.text and msg.media.caption check	
+-- msg.text and msg.media.caption checking
 	if msg.text then
 		local is_link_caption = msg.media.caption:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]/") or msg.media.caption:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]/")
 		if is_link_caption and link == "noAllowed" then
@@ -61,7 +61,7 @@ local function pre_process(msg)
         		delete_msg(msg.id, ok_cb, false)
 		end
 	end
--- end
+-- end cheking
 
     local hash = 'flood:max:'..msg.to.id
     if not redis:get(hash) then
