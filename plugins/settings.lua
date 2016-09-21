@@ -48,8 +48,8 @@ end
 local function pre_process(msg)
 -- msg.text and msg.media.caption checking
 	if msg.text then
-		local is_link_caption = msg.media.caption:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]/") or msg.media.caption:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]/")
-		if is_link_caption and link == "noAllowed" then
+		local is_link_text = msg.text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]/") or msg.text:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]/")
+		if is_link_text and link == "noAllowed" then
 			delete_msg(msg.id, ok_cb, false)
 		end
 	end
